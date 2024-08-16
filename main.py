@@ -62,7 +62,8 @@ def getWeather():
 # 获取北京时间确定随机步数&启动主函数
 def getBeijinTime():
     global K, type
-    K = 1.0
+    K = 0.9
+    base_step = 2000
     type = ""
     hea = {'User-Agent': 'Mozilla/5.0'}
     url = r'https://apps.game.qq.com/CommArticle/app/reg/gdate.php'
@@ -76,8 +77,8 @@ def getBeijinTime():
         hour = find.group(1)
         min_ratio = max(math.ceil((int(hour) / 3) - 1), 0)
         max_ratio = math.ceil(int(hour) / 3)
-        min_1 = 2000 * min_ratio
-        max_1 = 2000 * max_ratio
+        min_1 = base_step * min_ratio
+        max_1 = base_step * max_ratio
         min_1 = int(K * min_1)
         max_1 = int(K * max_1)
     else:
@@ -96,7 +97,7 @@ def getBeijinTime():
                 msg_mi = ""
             for user_mi, passwd_mi in zip(user_list, passwd_list):
                 msg_mi += main(user_mi, passwd_mi, min_1, max_1)
-                # print(msg_mi)
+                print(msg_mi)
     else:
         print("当前主人设置了0步数呢，本次不提交")
         return
