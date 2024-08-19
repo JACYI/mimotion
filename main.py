@@ -62,7 +62,11 @@ def getWeather():
 # 获取北京时间确定随机步数&启动主函数
 def getBeijinTime():
     global K, type
-    K = 0.9
+    today = datetime.date.today().weekday()
+    if today > 4:# 星期六和星期日降低系数
+        K = 0.75
+    else:
+        K = 0.9
     base_step = 2000
     type = ""
     hea = {'User-Agent': 'Mozilla/5.0'}
