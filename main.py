@@ -194,8 +194,12 @@ def main(_user, _passwd, min_1, max_1):
     if login_token == 0:
         print("登陆失败！")
         return "login fail!"
-
-    t = get_time()
+    try:
+        t = get_time()
+    except:
+        import time
+        t = int(time.time())
+    print(t)
 
     app_token = get_app_token(login_token)
 
