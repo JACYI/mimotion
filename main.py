@@ -197,7 +197,6 @@ def main(_user, _passwd, min_1, max_1):
     try:
         t = get_time()
     except:
-        import time
         t = int(time.time())
     print(t)
 
