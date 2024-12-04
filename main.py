@@ -67,7 +67,7 @@ def getBeijinTime():
         K = 0.75
     else:
         K = 0.9
-    base_step = 2000
+    base_step = 1900
     type = ""
     hea = {'User-Agent': 'Mozilla/5.0'}
     url = r'https://apps.game.qq.com/CommArticle/app/reg/gdate.php'
