@@ -13,7 +13,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout codes
         uses: actions/checkout@v4
@@ -25,9 +25,9 @@ jobs:
           sudo -E apt-get install zsh -y
 
       - name: 初始化Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.8
+          python-version: '3.8'
       - name: 开始
         env:
           CONFIG: ${{ secrets.CONFIG }}
